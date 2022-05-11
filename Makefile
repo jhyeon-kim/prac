@@ -9,9 +9,12 @@ ECR_IMG_COMMIT_SERVER := ${ECR_ENDPOINT_SERVER}:${TAG}
 ECR_IMG_LATEST_SERVER := ${ECR_ENDPOINT_SERVER}:latest
 
 build:
-	@docker build -f Dockerfile -t ${LOCAL_IMG_COMMIT_SERVER} .
+	@#docker build -f Dockerfile -t ${LOCAL_IMG_COMMIT_SERVER} .
+	@docker buildx build --platform=linux/amd64 -f Dockerfile -t ${LOCAL_IMG_COMMIT_SERVER} .
 	@docker tag ${LOCAL_IMG_COMMIT_SERVER} ${ECR_IMG_COMMIT_SERVER}
 	@docker tag ${LOCAL_IMG_COMMIT_SERVER} ${ECR_IMG_LATEST_SERVER}
+
+
 
 push:
 	@aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin ${ECR_URI}
