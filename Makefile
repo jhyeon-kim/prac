@@ -17,7 +17,7 @@ ECR_IMG_LATEST_PROXY := ${NAME_PROXY}:latest
 build:
 	@#docker build -f Dockerfile -t ${LOCAL_IMG_COMMIT_SERVER} .
 	@docker buildx build --platform=linux/amd64 -f Dockerfile -t ${LOCAL_IMG_COMMIT_SERVER} .
-	@docker buildx build --platform=linux/amd64 -f _proxy.Dockerfile -t ${LOCAL_IMG_COMMIT_SERVER} .
+	@docker buildx build --platform=linux/amd64 -f _proxy.Dockerfile -t ${LOCAL_IMG_COMMIT_PROXY} .
 
 	@docker tag ${LOCAL_IMG_COMMIT_SERVER} ${ECR_IMG_COMMIT_SERVER}
 	@docker tag ${LOCAL_IMG_COMMIT_SERVER} ${ECR_IMG_LATEST_SERVER}

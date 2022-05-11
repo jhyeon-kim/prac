@@ -1,0 +1,17 @@
+#version: '3'
+#services:
+#  app:
+#    container_name: app-container
+#    image: 615496323698.dkr.ecr.ap-northeast-1.amazonaws.com/practice03@sha256:58163c6a60089acebe6f87679e0eca23c96efde990806dd86213701ce98e2d85
+#    ports:
+#      - "3000:3000"
+##    volumes:
+##      - ./source:/source
+##      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+#  proxy:
+#    container_name: proxy-container
+#    image: 615496323698.dkr.ecr.ap-northeast-1.amazonaws.com/practice03-proxy:ee2ef1c
+#    ports:
+#      - "80:80"
+#    volumes:
+#      - ./proxy/nginx.conf:/etc/nginx/nginx.conf

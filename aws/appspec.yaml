@@ -1,0 +1,9 @@
+version: 1
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "arn:aws:ecs:ap-northeast-1:615496323698:task-definition/practice03:1"
+        LoadBalancerInfo:
+          ContainerName: "practice03"
+          ContainerPort: 3000
